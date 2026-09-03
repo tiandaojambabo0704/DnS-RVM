@@ -1,5 +1,7 @@
 # Depth and Semantic Guided Refinement for Robust Video Matting
 
+![teaser](documentation/01.png)
+
 ## Overview
 RVM performs well in video matting but produces unstable alpha in transition regions (hair, soft boundaries, clothing edges). This project proposes two refinement strategies:
 
