@@ -1,0 +1,44 @@
+paths:
+  data_root: "/content/drive/MyDrive/DATA/P3M-10k"
+  rvm_weight: "/content/drive/MyDrive/RVM/rvm_resnet50.pth"
+  model_save_dir: "/content/drive/MyDrive/RVM/semantic_refine_model"
+  output_dir: "/content/drive/MyDrive/RVM"
+  testset_root: "/content/drive/MyDrive/DATA/P3M-10k/validation/P3M-500-NP"
+
+dataset:
+  target_size: [512, 512]
+  test_mode: true
+  test_size: 9421
+  rgb_save_limit: 1
+
+training:
+  batch_size: 8
+  num_epochs: 20
+  learning_rate: 0.0001
+  num_workers: 4
+  transition_weight: 3.0
+  certain_weight: 0.2
+  grad_weight: 0.1
+
+inference:
+  delta: 0.8
+  output_type: "refined"
+  use_precomputed_base_alpha: true
+  base_alpha_dir_name: "base_alpha"
+
+preprocess:
+  generate_sem_label: false
+  generate_base_alpha: true
+  max_workers: 4
+
+semantic_label:
+  alpha_bg_max: 0.05
+  alpha_tr_back_max: 0.5
+  alpha_tr_fore_min: 0.5
+  alpha_fore_min: 0.95
+
+color_map:
+  0: [0, 0, 0]
+  1: [255, 0, 0]
+  2: [0, 0, 255]
+  3: [255, 255, 255]
